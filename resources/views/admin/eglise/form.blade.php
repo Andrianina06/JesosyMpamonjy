@@ -1,9 +1,10 @@
 @extends('base')
-@section('title', 'Ajouter une église')
+@section('title', $eglise->exists ? 'Editer une eglise' : 'Ajouter une église')
 @section('content')
 <h1>Ajouter une eglise</h1>
-<form action="{{ $eglise->exists ? route('eglise.edit', ['eglise' => $eglise]) : route('eglise.store') }}" method="post" enctype="multipart/form-data" class="vstack gap-2">
+<form action="{{ $eglise->exists ? route('eglise.update', ['eglise' => $eglise]) : route('eglise.store') }}" method="post" enctype="multipart/form-data" class="vstack gap-2">
     @csrf
+    @method($eglise->exists ? 'PATCH' : 'POST')
     <div class="row">
         @include('shared.select', [
             'name' => 'lieu_id',

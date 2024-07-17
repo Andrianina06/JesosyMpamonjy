@@ -35,17 +35,23 @@ class EgliseController extends Controller
         Eglise::create($request->validated());
         return redirect(route('eglise.index'));
     }
-
+    
     public function edit(Eglise $eglise){
         return view('admin.eglise.form', ['pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 'lieux'=>Lieu::all(), 'eglise'=>$eglise]);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Admin\Eglise  $eglise
-     * @return \Illuminate\Http\Response
-     */
+        
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  \App\Models\Admin\Eglise  $eglise
+         * @return \Illuminate\Http\Response
+         */
+    public function update(EgliseFormController $request, Eglise $eglise)
+    {
+        $eglise->update($request->validated());
+        return redirect(route('eglise.index'));
+    }
+    
     public function destroy(Eglise $eglise)
     {
         $eglise->destroy($eglise->id);

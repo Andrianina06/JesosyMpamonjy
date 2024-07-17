@@ -11,6 +11,7 @@ $i = 0;
         <thead>
             <th class="text-center">#</th>
             <th class="text-center">Vehicule</th>
+            <th class="text-center">Matricule</th>
             <th class="text-center">Frais</th>
             <th class="text-center">Date de départ</th>
             <th class="text-center">Heure de départ</th>
@@ -21,9 +22,13 @@ $i = 0;
                 <tr>
                     <td class="text-center">{{ ++$i }}</td>
                     <td class="text-center">{{ $gestion->vehicule->marque }}</td>
+                    <td class="text-center">{{ $gestion->vehicule->matricule }}</td>
                     <td class="text-center">{{ $gestion->frais }} Ar</td>
+                    <td class="text-center">@php
+                        $exp = explode(':', $gestion->heure_depart);
+                        echo $exp[0].'h '.$exp[1].'min '.$exp[2].'sec';
+                    @endphp</td>
                     <td class="text-center">{{ $gestion->date_depart }}</td>
-                    <td class="text-center">{{ $gestion->heure_depart }}</td>
                     <td class="text-center">
                         <a href="{{ route('gestion.edit', ['evenement'=>$evenement, 'gestion'=>$gestion]) }}" class="btn btn-primary">Modifier</a>
                     </td>
