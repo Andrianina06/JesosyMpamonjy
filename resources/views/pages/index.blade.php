@@ -18,14 +18,14 @@
         <div class="container">
             <h1>Les derniers évènements</h1>
             <div class="row">
-                @foreach ($evenements as $evenement)
-                    <div class="col-lg-9 py-3">
-                        <div class="row">
-                            <div class="card col-md-4 position-relative">
+                <div class="col-lg-9 py-3">
+                    <div class="row">
+                        @foreach ($evenements as $evenement)
+                            <div class="card col position-relative m-4">
                                 <div class="p-3 text-center">
                                     <h5 class="text-gradient text-primary">{{ $evenement->exemple->exemple }}</h5>
                                     <ul class="list-unstyled mt-3 mb-4">
-                                        <li> {{ $evenement->lieu->lieu }}</li>
+                                        <li>{{ $evenement->lieu->lieu }}</li>
                                         <li>Debut : {{ $evenement->date_debut }}</li>
                                         <li>Fin : {{ $evenement->date_fin }}</li>
                                     </ul>
@@ -33,16 +33,16 @@
                                 </div>
                                 <hr class="vertical dark">
                             </div>
+                        @endforeach
                         </div>
                     </div>
-                @endforeach
             </div>
             <h1>Quelques églises</h1>
             <div class="row">
                 <div class="col-lg-9 py-3">
                     <div class="row">
                         @foreach ($eglises as $eglise)
-                            <div class="card col-md-4 position-relative">
+                            <div class="card col-4 position-relative m-4">
                                 <div class="p-3 text-center">
                                     <h5 class="text-gradient text-primary">{{ $eglise->lieu->lieu }}</h5>
                                     <ul class="list-unstyled mt-3 mb-4">
@@ -60,9 +60,4 @@
         </div>
     </section>
 </div>
-    
-<<<<<<< HEAD
->>>>>>> 74c9c38 (commit all)
-=======
->>>>>>> 74c9c38 (commit all)
 @endsection
