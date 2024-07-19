@@ -2,6 +2,7 @@
 @section('title', 'Acceuil')
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
     <h1>Les derniers évènements</h1>
     <div class="row">
         @foreach ($evenements as $evenement)
@@ -42,6 +43,8 @@
         @endforeach
     </div>
 =======
+=======
+>>>>>>> 74c9c38 (commit all)
 <header class="header-2">
     <div class="page-header min-vh-75 relative" style="background-image: url('../assets/img/jmp/cross.jpg'); opacity: 0.5">
       <span class="mask bg-gradient-faded-dark opacity-2"></span>
@@ -102,5 +105,8 @@
     </section>
 </div>
     
+<<<<<<< HEAD
+>>>>>>> 74c9c38 (commit all)
+=======
 >>>>>>> 74c9c38 (commit all)
 @endsection

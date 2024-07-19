@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+=======
+    <link rel="stylesheet" href="./assets/css/material-kit.css">
+>>>>>>> 74c9c38 (commit all)
 =======
     <link rel="stylesheet" href="./assets/css/material-kit.css">
 >>>>>>> 74c9c38 (commit all)
@@ -15,6 +19,7 @@
     $route = request()->route()->getName(); 
 @endphp
 <body>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div style="background: #b50000b8">
         <nav class="navbar navbar-expand navbar-dark py-3" aria-label="Second navbar example">
@@ -42,6 +47,8 @@
         </div>
     </div>
 =======
+=======
+>>>>>>> 74c9c38 (commit all)
     <header class="header-2">
         <div class="page-header min-vh-100 relative" style="background-image: url('./assets/img/bg2.jpg')">
           <span class="mask bg-gradient-primary opacity-2"></span>
@@ -59,6 +66,9 @@
           </div>
         </div>
     </header>
+<<<<<<< HEAD
+>>>>>>> 74c9c38 (commit all)
+=======
 >>>>>>> 74c9c38 (commit all)
 </body>
 </html>
