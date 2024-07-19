@@ -1,8 +1,8 @@
 @extends('template')
 @section('title', 'Acceuil')
 @section('content')
-<header class="header-2 mt-7">
-    <div class="page-header min-vh-75 relative" style="background-image: url('../assets/img/jmp/cross.jpg'); opacity: 0.7">
+<header class="header-2">
+    <div class="page-header min-vh-65 relative" style="background-image: url('../assets/img/jmp/cross.jpg'); opacity: 0.7">
       <span class="mask bg-gradient-primary opacity-2"></span>
       <div class="container">
         <div class="row">
@@ -21,7 +21,7 @@
                 <div class="col-lg-9 py-3">
                     <div class="row">
                         @foreach ($evenements as $evenement)
-                            <div class="card col position-relative m-4">
+                            <div class="card col-md-4 position-relative">
                                 <div class="p-3 text-center">
                                     <h5 class="text-gradient text-primary">{{ $evenement->exemple->exemple }}</h5>
                                     <ul class="list-unstyled mt-3 mb-4">
@@ -34,15 +34,15 @@
                                 <hr class="vertical dark">
                             </div>
                         @endforeach
-                        </div>
                     </div>
+                </div>
             </div>
             <h1>Quelques églises</h1>
             <div class="row">
                 <div class="col-lg-9 py-3">
                     <div class="row">
                         @foreach ($eglises as $eglise)
-                            <div class="card col-4 position-relative m-4">
+                            <div class="card col-3 position-relative m-4">
                                 <div class="p-3 text-center">
                                     <h5 class="text-gradient text-primary">{{ $eglise->lieu->lieu }}</h5>
                                     <ul class="list-unstyled mt-3 mb-4">

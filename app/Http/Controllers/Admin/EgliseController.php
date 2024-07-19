@@ -32,6 +32,7 @@ class EgliseController extends Controller
      */
     public function store(EgliseFormController $request)
     {
+        dd($request);
         Eglise::create($request->validated());
         return redirect(route('eglise.index'));
     }
