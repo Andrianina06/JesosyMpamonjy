@@ -21,7 +21,7 @@ class EgliseController extends Controller
     }
 
     public function create(){
-        return view('admin.eglise.form', ['pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 'lieux'=>Lieu::all(), 'eglise'=>new Eglise]);
+        return view('admin.eglise.form', ['pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 'lieux'=>Lieu::all(), 'eglise'=>new Eglise()]);
     }
 
     /**
@@ -32,8 +32,12 @@ class EgliseController extends Controller
      */
     public function store(EgliseFormController $request)
     {
-        dd($request);
-        Eglise::create($request->validated());
+        $data = $request->validated();
+        $image = $request->validated()['image'];
+        $imagePath = $image->store('images/eglise', 'public');
+        $imagePath = $imagePath.'/'.$request->validated()['lieu_id'];
+        $data['image'] = $imagePath;
+        Eglise::create($data);
         return redirect(route('eglise.index'));
     }
     
@@ -49,7 +53,11 @@ class EgliseController extends Controller
          */
     public function update(EgliseFormController $request, Eglise $eglise)
     {
-        $eglise->update($request->validated());
+        $data = $request->validated();
+        $image = $request->validated()['image'];
+        $imagePath = $image->store('images/eglise', 'public');
+        $data['image'] = $imagePath;
+        $eglise->update($data);
         return redirect(route('eglise.index'));
     }
     
