@@ -23,7 +23,7 @@ class UserController extends Controller
     }
 
     public function showEvenement(Evenement $evenement) : View {
-        return view('pages.evenement.show', ['evenement'=>$evenement]);
+        return view('pages.evenement.show', ['evenement'=>$evenement, 'eglise'=> Eglise::where('lieu_id', $evenement->lieu->id)->first()]);
     }
 
     public function showEglise(Eglise $eglise) : View {
