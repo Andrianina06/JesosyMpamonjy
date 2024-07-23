@@ -17,11 +17,17 @@ class EgliseController extends Controller
      */
     public function index()
     {
-        return view('admin.eglise.index', ['eglises'=>Eglise::all(), 'pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 'lieux'=>Lieu::all()]);
+        return view('admin.eglise.index', [
+            'eglises'=>Eglise::all(), 
+            'pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 
+            'lieux'=>Lieu::all()]);
     }
 
     public function create(){
-        return view('admin.eglise.form', ['pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 'lieux'=>Lieu::all(), 'eglise'=>new Eglise()]);
+        return view('admin.eglise.form', [
+            'pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 
+            'lieux'=>Lieu::all(), 
+            'eglise'=>new Eglise()]);
     }
 
     /**
@@ -33,16 +39,22 @@ class EgliseController extends Controller
     public function store(EgliseFormController $request)
     {
         $data = $request->validated();
-        $image = $request->validated()['image'];
-        $imagePath = $image->store('images/eglise', 'public');
-        $imagePath = $imagePath.'/'.$request->validated()['lieu_id'];
-        $data['image'] = $imagePath;
+        if(isset($request->validated()['image']) && $request->validated()['image'] != null)
+        {
+            $image = $request->validated()['image'];
+            $imagePath = $image->store('images/eglise', 'public');
+            $data['image'] = $imagePath;
+        }
         Eglise::create($data);
         return redirect(route('eglise.index'));
     }
     
-    public function edit(Eglise $eglise){
-        return view('admin.eglise.form', ['pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 'lieux'=>Lieu::all(), 'eglise'=>$eglise]);
+    public function edit(Eglise $eglise)
+    {
+        return view('admin.eglise.form', [
+            'pasteurs'=>Personne::select('prenom', 'id')->isPasteur()->get(), 
+            'lieux'=>Lieu::all(), 
+            'eglise'=>$eglise]);
     }
         
         /**
@@ -54,9 +66,12 @@ class EgliseController extends Controller
     public function update(EgliseFormController $request, Eglise $eglise)
     {
         $data = $request->validated();
-        $image = $request->validated()['image'];
-        $imagePath = $image->store('images/eglise', 'public');
-        $data['image'] = $imagePath;
+        if($request->validated()['image']->exists)
+        {
+            $image = $request->validated()['image'];
+            $imagePath = $image->store('images/eglise', 'public');
+            $data['image'] = $imagePath;
+        }
         $eglise->update($data);
         return redirect(route('eglise.index'));
     }

@@ -19,8 +19,7 @@
             'class' => 'col', 
             'options' => $lieux,
             'value' => 'lieu', 
-            'valueId' => $evenement->lieu_id, 
-            'secValue' => 'lieu'])
+            'valueId' => $evenement->lieu_id])
         @include('shared.input', [
             'name' => 'duree_du_trajet',
             'label' => 'Durée du trajet',
@@ -97,11 +96,9 @@
             'multiple' => true, 
             'valueId'  =>  $evenement->vehicules()->pluck('id')])
     </div>
-    @if ($evenement->exists)
-        @include('shared.checkbox', [
-            'name' => 'passe', 
-            'label' => 'Passé'])
-    @endif
+    @include('shared.checkbox', [
+        'name' => 'passe', 
+        'label' => 'Passé'])
     <button class="btn btn-primary mt-2">Ajouter</button>
 </form>    
 @endsection

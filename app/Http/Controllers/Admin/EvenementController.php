@@ -29,7 +29,7 @@ class EvenementController extends Controller
         return view("admin.evenement.form",[
             'exemples' => Exemple::all(),
             'evenement' => new Evenement(),
-            'lieux' => Eglise::all(), 
+            'lieux' => Lieu::all(), 
             'pasteurs'=> Personne::select('prenom', 'id')->isPasteur()->get(), 
             'musiciens' => Equipe::select('id','lieu_id')->where('equipe_fonction_id', '1')->get(),
             'cuisiniers' => Equipe::where('equipe_fonction_id', '1')->get(), 
@@ -51,11 +51,12 @@ class EvenementController extends Controller
         return redirect(route('evenement.index'));
     }
 
-    public function edit(Evenement $evenement) {
-        return view("admin.evenement.form",[
+    public function edit(Evenement $evenement) 
+    {
+        return view('admin.evenement.form', [
             'exemples' => Exemple::all(), 
             'evenement' => $evenement, 
-            'lieux' => Eglise::all(),
+            'lieux' => Lieu::all(),
             'pasteurs' => Personne::select('prenom', 'id')->isPasteur()->get(), 
             'musiciens' => Equipe::select('id','lieu_id')->where('equipe_fonction_id', '1')->get(), 
             'cuisiniers' => Equipe::where('equipe_fonction_id', '1')->get(), 

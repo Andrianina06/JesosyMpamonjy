@@ -18,44 +18,49 @@
         <div class="container">
             <h1>Les derniers évènements</h1>
             <div class="row">
-                <div class="col-lg-9 py-3">
-                    <div class="row">
-                        @foreach ($evenements as $evenement)
-                            <div class="card col-md-4 position-relative">
-                                <div class="p-3 text-center">
-                                    <h5 class="text-gradient text-primary">{{ $evenement->exemple->exemple }}</h5>
-                                    <ul class="list-unstyled mt-3 mb-4">
-                                        <li>{{ $evenement->lieu->lieu }}</li>
-                                        <li>Debut : {{ $evenement->date_debut }}</li>
-                                        <li>Fin : {{ $evenement->date_fin }}</li>
-                                    </ul>
-                                    <a href="{{ route('userEvenement.show', ['evenement'=>$evenement])}}"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Détails</button></a>
-                                </div>
-                                <hr class="vertical dark">
+                @foreach ($evenements as $evenement)
+                    <div class="col-3 row ms-2">
+                        <div class="card rounded-3 shadow-sm ms-1">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal text-center">{{ $evenement->exemple->exemple }} </h4>
                             </div>
-                        @endforeach
+                            <div class="card-body">
+                                <ul class="list-unstyled mt-3">
+                                    <li> {{ $evenement->lieu->lieu }}</li>
+                                    <li>Debut : {{ $evenement->date_debut }}</li>
+                                    <li>Fin : {{ $evenement->date_fin }}</li>
+                                    <li>Déjà passé : 
+                                        @if ($evenement->passe == 1)
+                                            Déjà passé
+                                        @else    
+                                            non
+                                        @endif
+                                    </li>
+                                </ul>
+                                <a href="{{ route('userEvenement.show', ['evenement'=>$evenement])}}"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Détails</button></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
             <h1>Quelques églises</h1>
             <div class="row">
-                <div class="col-lg-9 py-3">
-                    <div class="row">
-                        @foreach ($eglises as $eglise)
-                            <div class="card col-3 position-relative m-4">
-                                <div class="p-3 text-center">
-                                    <h5 class="text-gradient text-primary">{{ $eglise->lieu->lieu }}</h5>
-                                    <ul class="list-unstyled mt-3 mb-4">
-                                        <li>{{ $eglise->lieu->lieu }}</li>
-                                        <li>Pst {{ $eglise->personne->prenom }}</li>
-                                    </ul>
-                                    <a href="{{ route('userEglise.show', ['eglise'=>$eglise])}}"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Détails</button></a>
-                                </div>
-                                <hr class="vertical dark">
+                @foreach ($eglises as $eglise)
+                    <div class="col-3">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal text-center">{{ $eglise->lieu->lieu }}</h4>
                             </div>
-                        @endforeach
+                            <div class="card-body">
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li> {{ $eglise->lieu->lieu }}</li>
+                                    <li><img src="/storage/image/F0gcR3THE04dvk5jgKbs4NbxX8DF86gjChppg0PS.png" alt=""> Pst {{ $eglise->personne->prenom.' '.$eglise->personne->nom }}</li>
+                                </ul>
+                                <a href="{{ route('userEglise.show', ['eglise'=>$eglise])}}"><button type="button" class="w-100 btn btn-lg btn-outline-primary">Détails</button></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
