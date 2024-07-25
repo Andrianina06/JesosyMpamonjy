@@ -46,6 +46,6 @@
         </div>
     </div>
     @yield('content')
-    <script src="./assets/js/material-kit.js"></script>
+    <script src="../assets/js/material-kit.js"></script>
 </body>
 </html>

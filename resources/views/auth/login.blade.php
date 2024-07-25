@@ -32,6 +32,7 @@
                 <div class="card-body">
                     <form role="form" class="text-start" method="POST" action="{{ route('doLogin') }}">
                         @csrf
+
                         <div class="input-group input-group-outline my-3">
                             <label class="form-label">Nom</label>
                             <input type="text" class="form-control" name="name">
@@ -49,11 +50,11 @@
                             <label class="form-check-label mb-0 ms-2" for="rememberMe">Sauvegarder mes informations</label>
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Se connecter</button>
+                            <button class="btn bg-gradient-primary w-100 my-4 mb-2">Se connecter</button>
                         </div>
                         <p class="mt-4 text-sm text-center">
                         Pas de compte?
-                        <a href="javascript:;" class="text-primary text-gradient font-weight-bold">S'inscrire</a>
+                        <a href="{{ route('signIn') }}" class="text-primary text-gradient font-weight-bold">S'inscrire</a>
                         </p>
                     </form>
                 </div>

@@ -28,10 +28,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('connexion', [AuthController::class, 'login'])->name('login');
-Route::post('connexion', [AuthController::class, 'doLogin'])->name('doLogin');
 
 Route::prefix('JesosyMpamonjy/')->group(function () {
+    Route::get('inscription', [AuthController::class, 'signIn'])->name('signIn');
+    Route::get('connexion', [AuthController::class, 'login'])->name('login');
+    Route::post('connexion', [AuthController::class, 'doLogin'])->name('doLogin');
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/acceuil', [UserController::class, 'index'])->name('user.index');
     Route::get('/eglise', [UserController::class, 'getAllEglise'])->name('userEglise.index');
