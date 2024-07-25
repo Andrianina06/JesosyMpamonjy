@@ -30,34 +30,49 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form role="form" class="text-start" method="POST" action="{{ route('doLogin') }}">
+                    <form role="form" class="text-start" method="POST" action="{{ route('doSignIn') }}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="input-group input-group-outline my-3">
+                        <div class="input-group input-group-outline @error('name') is-invalid @enderror my-3">
                             <label class="form-label">Nom</label>
                             <input type="text" class="form-control" name="name">
                         </div>
-                        <div class="input-group input-group-outline my-3">
+                        @error('name')
+                            <i class="text-primary text-gradient">{{ $message }}</i>
+                        @enderror
+                        <div class="input-group input-group-outline @error('firstname') is-invalid @enderror my-3">
                             <label class="form-label">Prenom</label>
                             <input type="text" class="form-control" name="firstname">
                         </div>
-                        <div class="input-group input-group-outline my-3">
+                        @error('firstname')
+                            <i class="text-primary text-gradient">{{ $message }}</i>
+                        @enderror
+                        <div class="input-group input-group-outline @error('email') is-invalid @enderror my-3">
                             <label class="form-label">Email</label>
                             <input type="email" class="form-control" name="email">
                         </div>
-                        <div class="input-group input-group-outline mb-3">
+                        @error('email')
+                            <i class="text-primary text-gradient">{{ $message }}</i>
+                        @enderror
+                        <div class="input-group input-group-outline @error('password') is-invalid @enderror mb-3">
                             <label class="form-label">Mot de passe</label>
                             <input type="password" class="form-control" name="password">
                         </div>
-                        <div class="dropdown">
-                            <a href="#" class="btn bg-gradient-dark dropdown-toggle " data-bs-toggle="dropdown" id="navbarDropdownMenuLink2"><i class="text-center">Eglise</i></a>
-                            <select name="eglise_id" class="form-control">
+                        @error('password')
+                            <i class="text-primary text-gradient">{{ $message }}</i>
+                        @enderror
+                        <div class="input-group input-group-static @error('eglise_id') is-invalid @enderror">
+                            <label class="exampleFormControlSelect2">Eglise</label>
+                            <select name="eglise_id" class="form-control" id="exampleFormControlSelect2">
                                 <option value=""></option>
                                 @foreach ($eglises as $eglise)
                                     <option value="{{ $eglise->id }}">{{ $eglise->lieu }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @error('eglise_id')
+                            <i class="text-primary text-gradient">{{ $message }}</i>
+                        @enderror
                         <div class="form-check form-switch d-flex align-items-center mb-3">
                             <input class="form-check-input" type="checkbox" id="rememberMe">
                             <label class="form-check-label mb-0 ms-2" for="rememberMe">Sauvegarder mes informations</label>

@@ -31,6 +31,7 @@ Route::get('/', function () {
 
 Route::prefix('JesosyMpamonjy/')->group(function () {
     Route::get('inscription', [AuthController::class, 'signIn'])->name('signIn');
+    Route::get('inscription', [AuthController::class, 'doSignIn'])->name('doSignIn');
     Route::get('connexion', [AuthController::class, 'login'])->name('login');
     Route::post('connexion', [AuthController::class, 'doLogin'])->name('doLogin');
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
