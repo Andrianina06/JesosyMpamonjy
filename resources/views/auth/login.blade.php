@@ -54,7 +54,7 @@
                         </div>
                         <p class="mt-4 text-sm text-center">
                         Pas de compte?
-                        <a href="{{ route('s') }}" class="text-primary text-gradient font-weight-bold">S'inscrire</a>
+                        <a href="{{ route('signIn') }}" class="text-primary text-gradient font-weight-bold">S'inscrire</a>
                         </p>
                     </form>
                 </div>
