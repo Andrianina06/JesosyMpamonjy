@@ -8,8 +8,8 @@
                     <div class="card-header">
                         <h1>{{ $evenement->lieu->lieu }}</h1>    
                     </div>
-                    <div class="card-body">
-                        <img src="/storage/{{ $eglise->image }}" alt="eglise" style="width: 50vh;">
+                    <div class="card-body m-auto">
+                        <img src="/storage/{{ $eglise->image }}" alt="eglise" style="width: 55vh;">
                     </div>
                     <div class="card-footer">
                         <p>Durée du trajet : {{ $evenement->duree_du_trajet }}h</p>
@@ -34,7 +34,11 @@
                         <p> Vehicules partant : @forelse ($evenement->vehicules as $vehicule) {{ $vehicule->marque }} @empty Aucun vehicule disponible! @endforelse</p>
                     </div>
                 </div>
-                <a href="{{ route('userEvenement.participate', ['evenement'=>$evenement]) }}"><button class="btn btn-danger">Participer</button></a>
+                <form action="{{ route('userEvenement.participate', ['evenement'=>$evenement]) }}" method="post">
+                    @csrf
+                    <input type="hidden">
+                    <button class="btn btn-danger">Participer</button>
+                </form>
             </div>
         </div>
         </div>

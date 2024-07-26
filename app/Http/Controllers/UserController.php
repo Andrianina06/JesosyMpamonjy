@@ -30,7 +30,7 @@ class UserController extends Controller
         return view('pages.eglise.show',['eglise'=>$eglise]);
     }
 
-    public function inscription(Evenement $evenement, PersonneFormRequest $request){
-        
+    public function inscription(Evenement $evenement, Request $request){
+        dd($request->session());
     }
 }

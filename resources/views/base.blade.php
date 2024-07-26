@@ -39,6 +39,13 @@
                     <li class="nav-item">
                         <a @class(['nav-link', 'active'=>str_contains($route, 'vehicule.')]) href="{{ route('vehicule.index') }}">Vehicule</a>
                     </li>
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-gradient">Se déconnecter</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
             </div>

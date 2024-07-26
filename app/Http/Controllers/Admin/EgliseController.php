@@ -6,6 +6,7 @@ use App\Models\Lieu;
 use App\Models\Eglise;
 use App\Models\Personne;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\EgliseFormController;
 
 class EgliseController extends Controller
@@ -66,7 +67,7 @@ class EgliseController extends Controller
     public function update(EgliseFormController $request, Eglise $eglise)
     {
         $data = $request->validated();
-        if($request->validated()['image']->exists)
+        if(isset($request->validated()['image']) && $request->validated()['image'] != null)
         {
             $image = $request->validated()['image'];
             $imagePath = $image->store('images/eglise', 'public');

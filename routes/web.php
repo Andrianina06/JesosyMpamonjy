@@ -34,13 +34,16 @@ Route::prefix('JesosyMpamonjy/')->group(function () {
     Route::post('inscription', [AuthController::class, 'doSignIn'])->name('doSignIn');
     Route::get('connexion', [AuthController::class, 'login'])->name('login');
     Route::post('connexion', [AuthController::class, 'doLogin'])->name('doLogin');
+    Route::delete('deconnexion', [AuthController::class, 'logOut'])->name('logout');
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/acceuil', [UserController::class, 'index'])->name('user.index');
-    Route::get('/eglise', [UserController::class, 'getAllEglise'])->name('userEglise.index');
-    Route::get('/eglise/{eglise}', [UserController::class, 'showEglise'])->name('userEglise.show');
-    Route::get('/evenement', [UserController::class, 'getAllEvenement'])->name('userEvenement.index');
-    Route::get('/evenement/{evenement}', [UserController::class, 'showEvenement'])->name('userEvenement.show');
-    Route::post('/evenement/{evenement}', [UserController::class, 'inscription'])->name('userEvenement.participate');
+    Route::middleware('auth')->group(function () {
+        Route::get('/eglise', [UserController::class, 'getAllEglise'])->name('userEglise.index');
+        Route::get('/eglise/{eglise}', [UserController::class, 'showEglise'])->name('userEglise.show');
+        Route::get('/evenement', [UserController::class, 'getAllEvenement'])->name('userEvenement.index');
+        Route::get('/evenement/{evenement}', [UserController::class, 'showEvenement'])->name('userEvenement.show');
+        Route::post('/evenement/{evenement}', [UserController::class, 'inscription'])->name('userEvenement.participate');
+    });
     Route::resource('personne', PersonneController::class)->except('show');
     Route::middleware('auth')->prefix('admin/')->group(function () {
         Route::resource('fonction', FonctionController::class)->except(['show', 'edit', 'create']);
