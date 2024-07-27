@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PersonneFormRequest;
 use App\Models\Eglise;
 use App\Models\Evenement;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PersonneFormRequest;
 
 class UserController extends Controller
 {
@@ -30,7 +31,7 @@ class UserController extends Controller
         return view('pages.eglise.show',['eglise'=>$eglise]);
     }
 
-    public function inscription(Evenement $evenement, Request $request){
-        dd($request->session());
+    public function inscription(Evenement $evenement){
+        
     }
 }

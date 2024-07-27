@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Lieu;
+use App\Models\User;
 use App\Models\Equipe;
 use App\Models\Vehicule;
 use Illuminate\Database\Eloquent\Model;
