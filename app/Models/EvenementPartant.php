@@ -9,7 +9,7 @@ class EvenementPartant extends Model
 {
     use HasFactory;
 
-    protected $table = "evenement_personne";
+    protected $table = "evenement_user";
 
     protected $fillable = ['evenement_id', 'user_id'];
 }

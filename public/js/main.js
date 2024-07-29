@@ -6,11 +6,11 @@ $(document).ready(function () {
         let _token = $('input[type="hidden"]').attr('value');
         $.ajax({
             url: "/JesosyMpamonjy/evenement/"+evenement,
-            method: 'post', 
+            method: 'POST', 
             data: {
-                user,
-                evenement,
-                _token
+                user_id : user,
+                evenement_id : evenement,
+                _token : _token
             },
             dataType: "json",
             success: function (data) {

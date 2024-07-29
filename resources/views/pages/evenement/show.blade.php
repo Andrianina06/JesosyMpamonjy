@@ -9,7 +9,9 @@
                         <h1>{{ $evenement->lieu->lieu }}</h1>    
                     </div>
                     <div class="card-body m-auto">
-                        <img src="/storage/{{ $eglise->image }}" alt="eglise" style="width: 55vh;">
+                        <div class="justify-content-center">
+                            <img src="/storage/{{ $eglise->image }}" alt="eglise" style="width: 60vh;">
+                        </div>
                     </div>
                     <div class="card-footer">
                         <p>Durée du trajet : {{ $evenement->duree_du_trajet }}h</p>
