@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lieu;
 use App\Models\User;
+use App\Models\Eglise;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignRequest;
 use App\Http\Requests\LoginRequest;
@@ -22,7 +23,7 @@ class AuthController extends Controller
         $credentials = $request->validated();
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect(route('eglise.index'));
+            return redirect(route('user.index'));
         }
         else {
             return back()->withErrors([
@@ -34,7 +35,7 @@ class AuthController extends Controller
 
     public function signIn()
     {
-        return view('auth.register', ['eglises'=>Lieu::all()]);
+        return view('auth.register', ['eglises'=>Eglise::all()]);
     }
 
     public function doSignIn(SignRequest $request)

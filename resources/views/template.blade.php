@@ -31,13 +31,20 @@
                                 <a @class(["nav-link ps-2 d-flex cursor-pointer align-items-center", 'active'=>str_contains($route, 'affectation.')]) href="{{ route('affectation.index') }}" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">Affectation</a>
                             </li>
                             <li class="nav-item dropdown dropdown-hover mx-2">
-                                <a @class(["nav-link ps-2 d-flex cursor-pointer align-items-center", 'active'=>str_contains($route, 'eglise.')]) href="{{ route('eglise.index') }}" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">Eglise</a>
+                                <a @class(["nav-link ps-2 d-flex cursor-pointer align-items-center", 'active'=>str_contains($route, 'eglise.')]) href="{{ route('userEglise.index') }}" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">Eglise</a>
                             </li>
                             <li class="nav-item dropdown dropdown-hover mx-2">
-                                <a @class(["nav-link ps-2 d-flex cursor-pointer align-items-center", 'active'=>str_contains($route, 'evenement.')]) href="{{ route('evenement.index') }}" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">Evenement</a>
+                                <a @class(["nav-link ps-2 d-flex cursor-pointer align-items-center", 'active'=>str_contains($route, 'evenement.')]) href="{{ route('userEvenement.index') }}" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">Evenement</a>
                             </li>
                             <li class="nav-item dropdown dropdown-hover mx-2">
                                 <a @class(["nav-link ps-2 d-flex cursor-pointer align-items-center", 'active'=>str_contains($route, 'pasteur.')]) href="{{ route('personne.index') }}" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">Pasteur</a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-hover mx-2">
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-primary">Se déconnecter</button>
+                                </form>
                             </li>
                         </ul>
                     </div>
@@ -46,6 +53,6 @@
         </div>
     </div>
     @yield('content')
-    <script src="../assets/js/material-kit.js"></script>
+    <script src="/assets/js/material-kit.js"></script>
 </body>
 </html>

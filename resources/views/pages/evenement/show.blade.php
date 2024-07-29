@@ -34,13 +34,16 @@
                         <p> Vehicules partant : @forelse ($evenement->vehicules as $vehicule) {{ $vehicule->marque }} @empty Aucun vehicule disponible! @endforelse</p>
                     </div>
                 </div>
-                <form action="{{ route('userEvenement.participate', ['evenement'=>$evenement]) }}" method="post">
+                <form action="{{ route('userEvenement.participate', ["evenement"=>$evenement]) }}" method="post">
                     @csrf
-                    <input type="hidden">
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user">
+                    <input type="hidden" name="evenement_id" value="{{ $evenement->id }}" id="evenement">
                     <button class="btn btn-danger">Participer</button>
                 </form>
             </div>
         </div>
         </div>
     </div>
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/main.js"></script>
 @endsection

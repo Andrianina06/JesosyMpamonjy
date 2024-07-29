@@ -66,7 +66,7 @@
                             <select name="eglise_id" class="form-control" id="exampleFormControlSelect2">
                                 <option value=""></option>
                                 @foreach ($eglises as $eglise)
-                                    <option value="{{ $eglise->id }}">{{ $eglise->lieu }}</option>
+                                    <option value="{{ $eglise->id }}">{{ $eglise->lieu->lieu }}</option>
                                 @endforeach
                             </select>
                         </div>

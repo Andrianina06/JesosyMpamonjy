@@ -31,7 +31,4 @@ class UserController extends Controller
         return view('pages.eglise.show',['eglise'=>$eglise]);
     }
 
-    public function inscription(Evenement $evenement){
-        
-    }
 }

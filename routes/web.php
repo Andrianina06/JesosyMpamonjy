@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\VehiculeController;
 use App\Http\Controllers\Admin\EvenementController;
 use App\Http\Controllers\Admin\AffectationController;
 use App\Http\Controllers\Admin\GestionTransportController;
+use App\Http\Controllers\EvenementPartantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,7 @@ Route::prefix('JesosyMpamonjy/')->group(function () {
         Route::get('/eglise/{eglise}', [UserController::class, 'showEglise'])->name('userEglise.show');
         Route::get('/evenement', [UserController::class, 'getAllEvenement'])->name('userEvenement.index');
         Route::get('/evenement/{evenement}', [UserController::class, 'showEvenement'])->name('userEvenement.show');
-        Route::post('/evenement/{evenement}', [UserController::class, 'inscription'])->name('userEvenement.participate');
+        Route::post('/evenement/{evenement}', [EvenementPartantController::class, 'inscription'])->name('userEvenement.participate');
     });
     Route::resource('personne', PersonneController::class)->except('show');
     Route::middleware('auth')->prefix('admin/')->group(function () {
