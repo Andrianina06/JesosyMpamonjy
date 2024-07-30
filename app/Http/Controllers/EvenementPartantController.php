@@ -9,6 +9,9 @@ class EvenementPartantController extends Controller
 {
     public function inscription(EvenementPartantRequest $request)
     {
-        EvenementPartant::create($request->validated());
+        $evenement = EvenementPartant::where('user_id', $request->validated()['user_id'])->first();
+        if ($evenement == null) {
+            EvenementPartant::create($request->validated());
+        }
     }
 }
