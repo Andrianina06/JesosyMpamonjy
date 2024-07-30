@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/material-kit.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/material-kit.css">
     <title>Fiangonana Jesosy Mpamonjy</title>
 </head>
 @php
@@ -13,7 +13,7 @@
 @endphp
 <body>
     <header class="header-2">
-        <div class="page-header min-vh-100 relative" style="background-image: url('./assets/img/bg2.jpg')">
+        <div class="page-header min-vh-100 relative" style="background-image: url('/assets/img/bg2.jpg')">
           <span class="mask bg-gradient-primary opacity-2"></span>
           <div class="container">
             <div class="row">
