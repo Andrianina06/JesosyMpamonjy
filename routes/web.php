@@ -36,8 +36,8 @@ Route::prefix('JesosyMpamonjy/')->group(function () {
     Route::get('connexion', [AuthController::class, 'login'])->name('login');
     Route::post('connexion', [AuthController::class, 'doLogin'])->name('doLogin');
     Route::delete('deconnexion', [AuthController::class, 'logOut'])->name('logout');
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::middleware('auth')->group(function () {
-        Route::get('/', [HomeController::class, 'index'])->name('home.index');
         Route::get('/acceuil', [UserController::class, 'index'])->name('user.index');
         Route::get('/eglise', [UserController::class, 'getAllEglise'])->name('userEglise.index');
         Route::get('/eglise/{eglise}', [UserController::class, 'showEglise'])->name('userEglise.show');
